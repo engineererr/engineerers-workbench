@@ -1,9 +1,10 @@
-# O365-Scripts
-Technet gallery
-Title
-Migrate on-premises SharePoint profile pictures to SharePoint Online
+# Migrate on-premises SharePoint profile pictures to SharePoint Online
+## Summary
+In hybrid environments SharePoint users often have already uploaded their profile pictures to SharePoint on-premises user profile service.
+ To ask them to upload the same images again, but this time to SharePoint Online, is a non viable solution for the users.
 
-Description
+
+## Description
 In hybrid environments SharePoint users often have already uploaded their profile pictures to SharePoint on-premises user profile service.
 To ask them to upload the same images again, but this time to SharePoint Online, is a non viable solution for the users.
 To prevent this, the script uploads the images from SharePoint on-premises to SharePoint Online.
@@ -27,11 +28,8 @@ checks if an image is already set
 if not, uploads the thumbnails
 updates UPS properties Picture URL to the URL of the Mthumb.jpg and SPS-PicturePlaceholderState to 0
 
-Summary
-In hybrid environments SharePoint users often have already uploaded their profile pictures to SharePoint on-premises user profile service.
- To ask them to upload the same images again, but this time to SharePoint Online, is a non viable solution for the users.
 
-Tags
+## Tags
 Sharepoint OnlineRemove
 SharePoint 2013Remove
 SharePoint 2016Remove
