@@ -1,1 +1,2 @@
 Use this script: https://gallery.technet.microsoft.com/Bulk-Export-SharePoint-51857b22
+Download all profile pictures to folder C:\ExportFiles\UserPhotos\Profilbilder

@@ -1,4 +1,4 @@
-﻿$items = gci E:\ExportFiles\UserPhotos\Profilbilder_second
+﻿$items = gci C:\ExportFiles\UserPhotos\Profilbilder
 $failedUsers = @()
 "upn;newname" | Out-File -Append -FilePath output.csv
 
