@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "font-size": "16px"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "attributes": {
+        "title": "Water",
+        "iconName": "[$Title]"
+      },
+      "style": {
+        "padding": "0 2px"
+      }
+    }
+  ]
+}

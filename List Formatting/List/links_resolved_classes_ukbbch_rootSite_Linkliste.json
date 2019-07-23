@@ -1,0 +1,89 @@
+{
+  "schema": "https://developer.microsoft.com/json-schemas/sp/view-formatting.schema.json",
+  "hideSelection": true,
+  "hideListHeader": true,
+  "rowFormatter": {
+    "elmType": "div",
+    "style": {
+      "margin": "0px 10px 10px -8px"
+    },
+    "children": [
+      {
+        "elmType": "a",
+        "attributes": {
+          "href": "[$URL]",
+          "target": "_blank",
+          "class": "ms-List-cell root-96"
+        },
+        "style": {
+            "color": "black",
+            "text-decoration": "none"
+        },
+        "children":
+        [
+          {
+            "elmType": "div",
+            "style": {
+                "width": "100%",
+                "box-sizing": "border-box",
+                "height": "48px",
+                "display": "flex",
+                "position": "relative",
+                "justify-content": "space-between",
+                "overflow": "hidden"
+            },
+            "children": 
+            [
+              {
+                "elmType": "div",
+                "attributes": {
+                  "iconName": "[$Icon]"
+                },
+                "style": {
+                  "margin-top": "0px",
+                  "margin-right": "0px",
+                  "margin-bottom": "0px",
+                  "margin-left": "0px",
+                  "align-self": "center",
+                  "box-sizing": "border-box",
+                  "width": "48px",
+                  "height": "48px",
+                  "position": "relative",
+                  "line-height": "48px",
+                  "text-align": "center",
+                  "font-size": "26px",
+                  "background-color": "#f8f8f8",
+                  "flex": "0 0 auto"
+                },
+                "children": 
+                [
+                  {
+                    "elmType": "span"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "txtContent": "[$URL.desc]",
+                "style": {
+                  "align-self": "flex-start",
+                  "font-size": "15px",
+                  "line-height": "21px",
+                  "margin-top": "3px",
+                  "min-width": "0px",
+                  "overflow-wrap": "break-word",
+                  "padding-top": "0px",
+                  "padding-right": "12px",
+                  "padding-bottom": "0px",
+                  "padding-left": "12px",
+                  "color": "#323130",
+                  "flex": "1 1 0%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

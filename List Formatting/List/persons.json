@@ -1,0 +1,82 @@
+{
+  "schema": "https://developer.microsoft.com/json-schemas/sp/view-formatting.schema.json",
+  "hideSelection": true,
+  "hideListHeader": true,
+  "rowFormatter": {
+    "elmType": "div",
+    "style": {
+      "width": "100%",
+      "height": "70px",
+      "border-radius": "8px",
+      "margin-right": "10px",
+      "margin-bottom": "20px",
+      "margin-top": "=if(@rowIndex == 0,'32px','0px')"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "width": "64px",
+          "height": "64px",
+          "margin": "10px"
+        },
+        "children": [
+          {
+            "elmType": "img",
+            "style": {
+              "max-height": "64px",
+              "max-width": "64px",
+              "border-radius": "50%"
+            },
+            "attributes": {
+              "src": "=if([$Person.email] == '', @currentWeb + '/_layouts/15/userphoto.aspx?size=M', @currentWeb + '/_layouts/15/userphoto.aspx?size=M&accountname=' + [$Person.email])",
+              "title": "=if([$Person.email] == '', 'No picture available', [$Person.desc])"
+            }
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "15px"
+        },
+        "children": [
+          {
+            "elmType": "span",
+            "style": {
+              "display": "block",
+              "font-size": "15px",
+              "font-weight": "400",
+              "margin": "0 0 3px",
+              "max-height": "38px",
+              "line-height": "19px"
+            },
+            "txtContent": "[$Person.title]"
+          },
+          {
+            "elmType": "span",
+            "style": {
+              "color": "#979593",
+              "font-size": "12px",
+              "font-weight": "400"
+            },
+            "txtContent": "=[$Mutation] + ' ' + toLocaleDateString([$Datum])"
+          },
+          {
+            "elmType": "span",
+            "style": {
+              "display": "block",
+              "overflow": "hidden",
+              "max-width": "280px",
+              "white-space": "nowrap",
+              "color": "#979593",
+              "font-size": "12px",
+              "font-weight": "400"
+            },
+            "txtContent": "[$Title]"
+          }
+        ]
+      }
+    ]
+  }
+}

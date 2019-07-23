@@ -1,0 +1,56 @@
+{
+  "schema": "https://developer.microsoft.com/json-schemas/sp/view-formatting.schema.json",
+  "hideSelection": true,
+  "hideListHeader": true,
+  "rowFormatter": {
+    "elmType": "div",
+    "style": {
+      "margin": "0px 10px 10px -8px"
+    },
+    "children": [
+      {
+        "elmType": "a",
+        "attributes": {
+          "href": "[$URL]",
+          "target": "_blank",
+          "class": "ms-List-cell root-96"
+        },
+        "style": {
+            "color": "black"
+        },
+        "children":
+        [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "content-93"
+            },
+            "children": 
+            [
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "thumbnail-98",
+                  "iconName": "[$Icon]"
+                },
+                "children": 
+                [
+                  {
+                    "elmType": "span"
+                  }
+                ]
+              },
+              {
+                "elmType": "div",
+                "attributes": {
+                  "class": "cardText-92"
+                },
+                "txtContent": "[$URL.desc]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
