@@ -5,9 +5,6 @@ $failedUsers = @()
 $items | % { 
     try {
         $fileName = $_.Name
-        if ($fileName.StartsWith("temp_ABB55201")) {
-            $fileName = $fileName.Substring(13)
-        }
         $underscoreIndex = $fileName.IndexOf("_")
         $thumbPart = $fileName.Substring($underscoreIndex)
         $upn = (Get-ADUser $fileName.Substring(0, $underscoreIndex) | select UserPrincipalName).UserPrincipalName
