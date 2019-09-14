@@ -1,0 +1,3 @@
+search query
+
+PromotedState:1 OR PromotedState:2

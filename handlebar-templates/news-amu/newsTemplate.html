@@ -1,0 +1,125 @@
+<style>
+    .xi-divider {
+        margin: 10px;
+        border-top: 1px solid #dddddd;
+    }
+    .xi-view-spacer-small {
+        margin: 4px;
+    }
+
+    .xi-view-spacer-big {
+        margin: 8px;
+    }
+    .xi-imageArea {
+        padding: 0 20px 0 0;
+        width: max-width;
+        float: left;
+    }
+    .xi-imageArea-link {
+        background-size: cover;
+        background-position: center center;
+        text-align: center;
+    }
+    .xi-image-small-view {
+        height: 200px;
+    }
+    .xi-image-large-view {
+        height: 160px;
+    }
+    .xi-textArea {
+        padding: 0 10px;
+    }
+
+    .xi-textArea-Link {
+        text-decoration: none;
+        color: #333333;
+    }
+    .xi-text-description {
+        color: #858585;
+        line-height: 1.4;
+        padding-bottom: 10px;
+        word-break: break-word;
+    }
+
+    .xi-title {
+        color: rgb(51, 51, 51);
+        font-size: 21px;
+        font-weight: 300;
+        height: 36px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .xi-title:hover {
+        color: #c6c090;
+    }
+
+    .xi-author {
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .xi-tag {
+        font-size: 13px;
+        font-weight: 600;
+        color: #c6c090;
+    }
+    .xi-date {
+        font-size: 13px;
+        font-weight: 500;
+        color: #858585;
+    }
+</style>
+
+<div class="template_root">
+    <div class="xi-title">News</div>
+    <div class="ms-Grid" dir="ltr">
+        {{#each items as |item|}}
+        <div class="ms-Grid-row xi-newsItem" tabindex="0">
+            <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg5">
+                <a
+                    class="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-hiddenMdDown ms-hiddenMd xi-imageArea-link xi-image-large-view"
+                    style="background-image: url({{ PictureThumbnailURL }})"
+                    href="{{getUrl item}}"
+                >
+                </a>
+                <a
+                    class="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-hiddenLg ms-hiddenLgUp xi-imageArea-link xi-image-small-view"
+                    style="background-image: url({{ PictureThumbnailURL }})"
+                    href="{{getUrl item}}"
+                >
+                </a>
+            </div>
+            <div class="ms-Grid-col ms-sm12 ms-hiddenLg ms-hiddenLgUp xi-view-spacer-small"></div>
+            <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg7 ms-xl7">
+                <div class="ms-Grid-col ms-sm12">
+                    <a class="xi-textArea-Link" href="{{getUrl item}}" target="_blank" tabindex="-1">
+                        <div class="xi-title">{{ Title }}</div>
+                    </a>
+                </div>
+                <div class="ms-Grid-col ms-sm12">
+                    <div class="xi-text-description">{{{ HitHighlightedSummary }}}</div>
+                </div>
+                <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl8">
+                    <div class="xi-metadata">
+                        <div class="xi-author" aria-hidden="true">{{ Author }}</div>
+                        <div class="xi-date" role="presentation">{{moment ModifiedOWSDate "DD. MMM YYYY"}}</div>
+                    </div>
+                </div>
+                <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl4">
+                    <div class="xi-metadata">
+                        <div class="xi-tag">
+                            <div>{{ XIowstaxIdValoTags }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-Grid-col ms-sm12 ms-hiddenLg ms-hiddenLgUp xi-view-spacer-big"></div>
+        </div>
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-hiddenMdDown ms-hiddenMd xi-divider"></div>
+        </div>
+        {{/each}}
+    </div>
+</div>
