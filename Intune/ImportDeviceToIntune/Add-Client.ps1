@@ -1,3 +1,6 @@
+# credit: http://rzander.azurewebsites.net/automatically-register-existing-device-in-autopilot/
+# version from credits was old and didn't work for me anymore
+
 # true = dummy values are used
 # false = values from current devices are used
 $testMode = $true
