@@ -3,11 +3,11 @@ Source: https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-beta
 #>
 Install-Module -Name MSAL.PS -RequiredVersion 4.2.1.3
 Import-Module MSAL.PS
-$tenantID = ""
-$appId = ""
-$appSecret = ""
+$clientId = "YOURCLIENTID"
+$clientSecret = "YOURCLIENTSECRET"
+$tenantId = "YOURTENANTID"
 
-$ConfidentialClientOptions = New-Object Microsoft.Identity.Client.ConfidentialClientApplicationOptions -Property @{ ClientId = $appId; TenantId = $tenantID; ClientSecret = $appSecret }
+$ConfidentialClientOptions = New-Object Microsoft.Identity.Client.ConfidentialClientApplicationOptions -Property @{ ClientId = $clientId; ClientSecret = $clientSecret; TenantId = $tenantId }
 $ConfidentialClient = $ConfidentialClientOptions | New-MsalClientApplication
 $tokenObj = Get-MsalToken -Scope 'https://graph.microsoft.com/.default' -ConfidentialClientApplication $ConfidentialClient
 $apiUrl = "https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2021-06-21T00:00:00Z&`$select=userPrincipalName,displayName,mail,signInActivity"
