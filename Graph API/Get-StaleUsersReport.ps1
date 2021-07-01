@@ -9,9 +9,7 @@ $appSecret = ""
 
 $ConfidentialClientOptions = New-Object Microsoft.Identity.Client.ConfidentialClientApplicationOptions -Property @{ ClientId = $appId; TenantId = $tenantID; ClientSecret = $appSecret }
 $ConfidentialClient = $ConfidentialClientOptions | New-MsalClientApplication
-$ConfidentialClient.AcquireTokenSilent(
 $tokenObj = Get-MsalToken -Scope 'https://graph.microsoft.com/.default' -ConfidentialClientApplication $ConfidentialClient
-$tokenObj = Get-MsalToken -Scope 'https://graph.microsoft.com/.default' -ClientId $appId -ClientSecret (ConvertTo-SecureString -String $appSecret -AsPlainText -Force) -TenantId $tenantID
 $apiUrl = "https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2021-06-21T00:00:00Z&`$select=userPrincipalName,displayName,mail,signInActivity"
 $res = Invoke-RestMethod -Headers @{Authorization = "Bearer $($tokenObj.AccessToken)"} -Uri $apiUrl -Method Get
 
