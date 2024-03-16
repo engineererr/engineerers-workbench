@@ -1,27 +1,26 @@
-Import-Module MicrosoftTeams
-
-# https://learn.microsoft.com/en-us/powershell/module/skype/grant-csteamsapppermissionpolicy?view=skype-ps
-# Grant-CsTeamsAppPermissionPolicy -Identity "Roger von Rohr" -PolicyName "id-policy"
-# Michael probably migrated already to Teams PowerShell or Graph SDK PowerShell
-# we wait for his script
-
 # https://learn.microsoft.com/en-us/powershell/module/teams/connect-microsoftteams?view=teams-ps
 # https://learn.microsoft.com/en-us/MicrosoftTeams/teams-powershell-application-authentication#setup-application-based-authentication
-# $appId = $env:appId
-# $appSecret = $env:secret
+
+# Setup: Grant Group.Read.All and Teams Admin to managed identity
 
 Connect-MicrosoftTeams -Identity
-Connect-MgGraph -Identity
+Connect-MgGraph -Identity -NoWelcome
 
 $mapping = @{
-    "id_teams_policy_group" = "id_policy"
+    "Test Security Group" = "id_policy"
 }
 
-$group = Get-MgGroup -Filter "DisplayName eq 'Test Security Group'"
-$members = Get-MgGroupMember -GroupId $group.Id
+Write-Output "Existing App Permission Policies"
+Get-CsTeamsAppPermissionPolicy
 
-# foreach($row in $mapping.Keys){
-#     $members = Get-MgGroupMembers $mapping
-#     # https://learn.microsoft.com/en-us/powershell/module/teams/new-csbatchpolicyassignmentoperation?view=teams-ps
-#     New-CsBatchPolicyAssignmentOperation -PolicyType TeamsAppPermissionPolicy -PolicyName $mapping[$row] -Identity $members -OperationName "$row Batch"
-# }
+foreach ($row in $mapping.Keys) {
+    $group = Get-MgGroup -Filter "DisplayName eq '$row'"
+    if($group.Count -ne 1) {
+        Write-Output "Group not found or not unique: $row"
+        continue
+    }
+    $members = Get-MgGroupMember -GroupId $group.Id
+    Write-Output $members
+    # https://learn.microsoft.com/en-us/powershell/module/teams/new-csbatchpolicyassignmentoperation?view=teams-ps
+    New-CsBatchPolicyAssignmentOperation -PolicyType TeamsAppPermissionPolicy -PolicyName $mapping[$row] -Identity $members.Id -OperationName "$row Batch"
+}

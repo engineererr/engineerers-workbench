@@ -3,3 +3,5 @@ Find-MgGraphCommand -command Get-MgUser | Select -First 1 -ExpandProperty Permis
 Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
 
 Get-Command -Module Microsoft.Graph* *team*
+
+https://learn.microsoft.com/en-us/powershell/microsoftgraph/use-query-parameters?view=graph-powershell-1.0

@@ -6,7 +6,7 @@ $permissionsRequested = @(
 
 $graphAppId = "00000003-0000-0000-c000-000000000000" # Don't change this.
 
-Connect-MgGraph -Scopes AppRoleAssignment.ReadWrite.All
+Connect-MgGraph -Scopes AppRoleAssignment.ReadWrite.All # You should be at least "Cloud Application Admin"
 
 $managedIdentityServicePrincipal = Get-MgServicePrincipal -Filter "displayName eq '$managedIdentityName'"
 $graphServicePrincipal = Get-MgServicePrincipal -Filter "appId eq '$graphAppId'"
