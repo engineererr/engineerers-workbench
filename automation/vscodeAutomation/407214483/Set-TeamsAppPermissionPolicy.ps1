@@ -3,8 +3,12 @@
 
 # Setup: Grant Group.Read.All and Teams Admin to managed identity
 
-Connect-MicrosoftTeams -Identity
-Connect-MgGraph -Identity -NoWelcome
+# Install-Module MicrosoftTeams
+# Connect-MicrosoftTeams -Identity
+# Install-Module Microsoft.Graph
+# Connect-MgGraph -Identity -NoWelcome
+Connect-MicrosoftTeams
+Connect-MgGraph
 
 $mapping = @{
     "Test Security Group" = "id_policy"
