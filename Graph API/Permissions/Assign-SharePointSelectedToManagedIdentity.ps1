@@ -5,13 +5,13 @@ $ObjectId = ""
 
 # Add the correct 'Application (client) ID' and 'displayName' for the Managed Identity
 $application = @{
-    id = "827fc69f-2814-44d7-96bc-492f2bf21c83"
-    displayName = "lbd-m365-automation-la"
+    id = ""
+    displayName = ""
 }
 
 $appRole = "read"
-$spoTenant = ""
-$spoSite  = ""
+$spoTenant = "tenant.sharepoint.com"
+$spoSite  = "siteName" # 
 
 
 # Add the correct Graph scope to grant
@@ -29,10 +29,8 @@ $appRoleAssignment = @{
 
 New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $ObjectID -BodyParameter $appRoleAssignment | Format-List
 
-# No need to change anything below
 $spoSiteId = $spoTenant + ":/sites/" + $spoSite + ":"
 
 Import-Module Microsoft.Graph.Sites
 Connect-MgGraph -Scope Sites.FullControl.All
-
 New-MgSitePermission -SiteId $spoSiteId -Roles $appRole -GrantedToIdentities @{ Application = $application }
