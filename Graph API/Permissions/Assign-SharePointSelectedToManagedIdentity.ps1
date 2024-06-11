@@ -1,3 +1,13 @@
+#TODO: Check if simpler with the following
+Grant-PnPAzureADAppSitePermission -AppId bc7ead9c-ebc4-4927-9d31-e7ffd238c63e -DisplayName "SPO-Automation" -Permissions Write
+
+
+
+
+
+
+
+
 # Source: https://learningbydoing.cloud/blog/connecting-to-sharepoint-online-using-managed-identity-with-granular-access-permissions/
 
 # Add the correct 'Object (principal) ID' for the Managed Identity
