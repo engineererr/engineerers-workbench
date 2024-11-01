@@ -1,6 +1,7 @@
 $csvFiles = Get-ChildItem -Path ./input -Filter *.csv
 
 foreach ($csvFile in $csvFiles) {
+    Copy-Item -Path $csvFile.FullName -Destination "./archive/$($csvFile.Name)"
     $content = Get-Content $csvFile.FullName
     $header = $content | Select-Object -Skip 11 -First 1
     $lines = $content | Select-Object -Skip 12
@@ -12,4 +13,5 @@ foreach ($csvFile in $csvFiles) {
     }
     $fullFile = @($header) + $sorted
     $fullFile | Set-Content -Path "./output/$($csvFile.Name)_cleaned.csv"
+    Remove-Item -Path $csvFile.FullName
 }
