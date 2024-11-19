@@ -3,11 +3,11 @@
 $CSVPath = "C:\Temp\webparts.csv"
 $tenant = "mytenant"
 $ownerToSetTemporarely = "admin@$tenant.onmicrosoft.com"
-
+$clientId = "" # Register an app with https://pnp.github.io/powershell/cmdlets/Register-PnPEntraIDAppForInteractiveLogin.html
 $spoUrl = "https://$tenant.sharepoint.com"
 $adminUrl = "https://$tenant-admin.sharepoint.com"
 #TODO: Get Valo Sites
-$tenantConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection
+$tenantConnection = Connect-PnPOnline -Url $adminUrl -Interactive -ReturnConnection -ClientId $clientId
 $sites = Get-PnPTenantSite -Connection $tenantConnection
 
 foreach ($s in $sites) {
